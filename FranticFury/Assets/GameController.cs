@@ -6,12 +6,13 @@ public class GameController : MonoBehaviour
 {
     public static float dropSpeed;
     public GameObject platform;
-    public List<GameObject> platforms = new List<GameObject>();
+    public GameObject[] platforms;
  
 
     // Start is called before the first frame update
     void Start()
     {
+        platforms = new GameObject[7];
         dropSpeed = 0.001f;
         for (int i = 0; i < 7; i++)
         {
@@ -19,10 +20,10 @@ public class GameController : MonoBehaviour
             float randX = Random.Range(-2.34f, 2.34f);
             Vector3 spawnPosition = new Vector3(randX,5 -(i*1.6f), 0);
             Instantiate(platform, spawnPosition, spawnRotation);
-            platforms.Add(platform);
+            platforms[i] = platform;
         }
 
-        Debug.Log(platforms.Count);
+        Debug.Log(platforms.Length);
     }
 
     // Update is called once per frame

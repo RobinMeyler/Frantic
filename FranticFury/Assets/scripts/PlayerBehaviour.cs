@@ -19,7 +19,6 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator anim;
 
     private float time = 0f;
-    private float yVelocity = 0f;
 
     // We initialize our two references in the Start method
     void Start()
@@ -77,6 +76,14 @@ public class PlayerBehaviour : MonoBehaviour
         rb.transform.localScale = theScale;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform") //&& collision.transform.position.y > this.transform.position.y)
+        {
+            anim.SetBool("grounded", true);
+        }
+    }
+
     void checkKeyInput()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
@@ -87,7 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     anim.SetBool("jump", true);
                     time = 0;
-                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 5);
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 6);
                 }
             }
         }
