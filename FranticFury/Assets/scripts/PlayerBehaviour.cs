@@ -81,6 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Platform") //&& collision.transform.position.y > this.transform.position.y)
         {
             anim.SetBool("grounded", true);
+            transform.SetParent(collision.transform);
         }
     }
 

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203df71d32e0bc748b085ac7b519144d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1193619041387451865, guid: 1b8d5fbbf5ef4e147a35fb2fe3ea7dd8,
+  platform: {fileID: 3256323112945818615, guid: b8b7aa05bda3c3e43befc4e90be22aca,
     type: 3}
   platforms: []
 --- !u!4 &1392107295
@@ -250,6 +250,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1394887244}
   - component: {fileID: 1394887243}
+  - component: {fileID: 1394887246}
+  - component: {fileID: 1394887245}
   m_Layer: 0
   m_Name: Left Border
   m_TagString: Untagged
@@ -319,6 +321,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.630005}
+--- !u!61 &1394887245
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394887242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0818f143b7cee3d43b069c944a1e2098, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.75, y: 1.66}
+    newSize: {x: 6.75, y: 1.66}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.75, y: 1.66}
+  m_EdgeRadius: 0
+--- !u!50 &1394887246
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394887242}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1856422562
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +378,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1856422564}
   - component: {fileID: 1856422563}
+  - component: {fileID: 1856422566}
+  - component: {fileID: 1856422565}
   m_Layer: 0
   m_Name: Right Border
   m_TagString: Untagged
@@ -398,6 +449,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.630005}
+--- !u!50 &1856422565
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856422562}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1856422566
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856422562}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0818f143b7cee3d43b069c944a1e2098, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.75, y: 1.66}
+    newSize: {x: 6.75, y: 1.66}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.75, y: 1.66}
+  m_EdgeRadius: 0
 --- !u!1001 &2811915499524631483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,15 +572,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 58217320578328694, guid: 925b2f4c19f764f4194fb16d515cfa03,
-        type: 3}
-      propertyPath: m_Radius
-      value: 2.14
-      objectReference: {fileID: 0}
     - target: {fileID: 7783930502512241624, guid: 925b2f4c19f764f4194fb16d515cfa03,
         type: 3}
       propertyPath: m_Name
       value: Blade
+      objectReference: {fileID: 0}
+    - target: {fileID: 58217320578328694, guid: 925b2f4c19f764f4194fb16d515cfa03,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 7783930502512241627, guid: 925b2f4c19f764f4194fb16d515cfa03,
         type: 3}
