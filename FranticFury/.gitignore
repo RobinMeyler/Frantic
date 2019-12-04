@@ -3,7 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /[Ll]ibrary/
-#/[Pp]rojectSettings/
+/[Pp]rojectSettings/
 /[Tt]emp/
 /[Oo]bj/
 /[Pp]ackages/
