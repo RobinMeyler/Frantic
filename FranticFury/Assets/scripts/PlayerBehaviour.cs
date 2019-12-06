@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
-{
-
+{ 
     // What is the maximum speed we want to walk at
     private float maxSpeed = 5f;
 
@@ -61,6 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
+       
     }
 
     void reverseImage()
@@ -84,15 +84,23 @@ public class PlayerBehaviour : MonoBehaviour
             transform.SetParent(collision.transform);
         }
     }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+        }
+    }
+    
     void checkKeyInput()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
         {
-            if (!anim.GetBool("jump"))
+            if (!anim.GetBool("jump") && anim.GetBool("grounded"))
             {
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walking")) // == "Idle" || anim.name == "Walking")
                 {
+                    anim.SetBool("grounded", false);
                     anim.SetBool("jump", true);
                     time = 0;
                     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 6);
