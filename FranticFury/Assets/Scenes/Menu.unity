@@ -809,7 +809,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Tutorial
 --- !u!222 &1216481273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1047,8 +1047,9 @@ GameObject:
   - component: {fileID: 1602017942}
   - component: {fileID: 1602017941}
   - component: {fileID: 1602017940}
+  - component: {fileID: 1602017943}
   m_Layer: 5
-  m_Name: Exit
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,6 +1150,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602017938}
   m_CullTransparentMesh: 0
+--- !u!114 &1602017943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602017938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0283436d18745f41bbc3aeaf33557bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisButton: {fileID: 1602017940}
 --- !u!1 &1634195914
 GameObject:
   m_ObjectHideFlags: 0
