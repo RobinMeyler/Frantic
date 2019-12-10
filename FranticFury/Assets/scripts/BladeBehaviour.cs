@@ -17,7 +17,10 @@ public class BladeBehaviour : MonoBehaviour
     void Start()
     {
         platforms = GameObject.FindGameObjectsWithTag("Platform");
-        index = Random.Range(0, platforms.Length);
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            index = Random.Range(0, platforms.Length);
+        }
         this.transform.position = platforms[index].transform.position;
         this.transform.parent = platforms[index].transform;
     }
@@ -50,9 +53,18 @@ public class BladeBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && SceneManager.GetActiveScene().name != "Tutorial")
         {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
+        else if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.position = new Vector3(-2.43f, -3.82f, 0);
+        }
+    }
+
+    public void setIndex(int t_ind)
+    {
+        index = t_ind; 
     }
 }
