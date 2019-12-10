@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 3ca6a7afc2a75d44e9ed70975a068e09
   - enabled: 1
-    path: Assets/Scenes/FranticFury.unity
-    guid: 3af63bb8de553cf41991775eb45a264d
+    path: Assets/Scenes/Options.unity
+    guid: 0568813ad3e86ea49b8b62fc189680b4
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 655438f0b7637b14ca72bb37f28bb2cb
+  - enabled: 1
+    path: Assets/Scenes/FranticFury.unity
+    guid: 3af63bb8de553cf41991775eb45a264d
   m_configObjects: {}
