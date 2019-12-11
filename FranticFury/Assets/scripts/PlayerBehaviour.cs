@@ -37,7 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         // Move the RigidBody2D (which holds the player sprite)
         // on the x axis based on the stae of input and the maxSpeed variable
-        rb.velocity = new Vector2(h * maxSpeed, rb.velocity.y);
+        //rb.velocity = new Vector2(h * maxSpeed, rb.velocity.y);
 
         // Pass in the current velocity of the RigidBody2D
         // The speed parameter of the Animator now knows
@@ -47,9 +47,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         // Check which way the player is facing 
         // and call reverseImage if neccessary
-        if (h < 0 && !facingLeft)
+        //if (h < 0 && !facingLeft)
+        //    reverseImage();
+        //else if (h > 0 && facingLeft)
+        //    reverseImage();
+
+        if (rb.velocity.x < 0 && !facingLeft)
             reverseImage();
-        else if (h > 0 && facingLeft)
+        else if (rb.velocity.x > 0 && facingLeft)
             reverseImage();
 
         checkKeyInput();
@@ -109,6 +114,20 @@ public class PlayerBehaviour : MonoBehaviour
                     time = 0;
                     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 6);
                 }
+            }
+        }
+    }
+
+    public void buttonJump()
+    {
+        if (!anim.GetBool("jump") && anim.GetBool("grounded"))
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walking")) // == "Idle" || anim.name == "Walking")
+            {
+                anim.SetBool("grounded", false);
+                anim.SetBool("jump", true);
+                time = 0;
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 6);
             }
         }
     }

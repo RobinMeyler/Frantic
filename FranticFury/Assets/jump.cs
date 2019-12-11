@@ -24,7 +24,7 @@ public class jump : MonoBehaviour
     {
         if (GetComponent<touch>().is_Touched == true)
         {
-            player.transform.position = player.transform.position + new Vector3(0.1f, 0, 0);
+            player.GetComponent<PlayerBehaviour>().buttonJump();
         }
     }
 }
