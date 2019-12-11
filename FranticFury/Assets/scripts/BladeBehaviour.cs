@@ -47,7 +47,7 @@ public class BladeBehaviour : MonoBehaviour
         this.transform.position = new Vector3(platforms[index].transform.position.x + offset, this.transform.position.y, this.transform.position.z);
 
 
-        degrees += 1;
+        degrees += 3;
         this.transform.eulerAngles = Vector3.forward * degrees;
     }
 
@@ -59,7 +59,7 @@ public class BladeBehaviour : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.transform.position = new Vector3(-2.43f, -3.82f, 0);
+            collision.gameObject.transform.position = new Vector3(-2.43f, -2.16f, 0);
         }
     }
 
