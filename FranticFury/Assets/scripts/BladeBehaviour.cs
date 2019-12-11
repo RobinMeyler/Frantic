@@ -9,7 +9,7 @@ public class BladeBehaviour : MonoBehaviour
     public GameObject gameController;
     GameObject[] platforms;
     private float degrees = 0f;
-    private int index;
+    private int index = 2;
     private float offset = 0f;
     private bool movingDir = true; //true == right, false == left
 
@@ -19,7 +19,10 @@ public class BladeBehaviour : MonoBehaviour
         platforms = GameObject.FindGameObjectsWithTag("Platform");
         if (SceneManager.GetActiveScene().name != "Tutorial")
         {
-            index = Random.Range(0, platforms.Length);
+            while (index == 2)
+            {
+                index = Random.Range(0, platforms.Length);
+            }
         }
         this.transform.position = platforms[index].transform.position;
         this.transform.parent = platforms[index].transform;

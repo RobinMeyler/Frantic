@@ -19,12 +19,24 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator anim;
 
     private float time = 0f;
+    public GameObject controller;
 
     // We initialize our two references in the Start method
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        GameObject[] ballers;
+        ballers = GameObject.FindGameObjectsWithTag("Platform");
+        int index = 0;
+        foreach (GameObject plat in ballers)
+        {
+            if (index == 2)
+            {
+                transform.position = plat.transform.position + new Vector3(0, 0.75f, 0);
+            }
+            index++;
+        }
     }
 
     // We use FixedUpdate to do all the animation work

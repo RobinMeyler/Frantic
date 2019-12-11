@@ -36,14 +36,16 @@ public class platformBehav : MonoBehaviour
          
             transform.position = new Vector3(randX, 5.5f, 0);
             int rand = Random.Range(0, 2);
-            if(rand == 0)
+            if(rand == 0 && GameController.lastPlat == false)
             {
                 transform.rotation = Quaternion.identity;
                 transform.Rotate(0,0,90);
+                GameController.lastPlat = true;
             }
             else
             {
                 transform.rotation = Quaternion.identity;
+                GameController.lastPlat = false;
             }
 
         }
