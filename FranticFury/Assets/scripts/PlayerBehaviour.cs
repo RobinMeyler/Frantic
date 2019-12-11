@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 { 
@@ -60,7 +61,10 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
-       
+       if(transform.position.y < -40)
+        {
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
     }
 
     void reverseImage()
