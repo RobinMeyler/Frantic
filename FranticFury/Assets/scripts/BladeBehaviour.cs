@@ -24,7 +24,7 @@ public class BladeBehaviour : MonoBehaviour
                 index = Random.Range(0, platforms.Length);
             }
         }
-        this.transform.position = platforms[index].transform.position;
+        this.transform.position = platforms[index].transform.position + new Vector3(0, 0.2f, 0);
         this.transform.parent = platforms[index].transform;
     }
 
@@ -39,11 +39,11 @@ public class BladeBehaviour : MonoBehaviour
         {
             offset = offset - 0.01f;
         }
-        if (offset > 0.5)
+        if (offset > 0.6)
         {
             movingDir = false;
         }
-        if (offset < -0.5)
+        if (offset < -0.6)
         {
             movingDir = true;
         }
