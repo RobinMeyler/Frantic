@@ -35,6 +35,17 @@ public class platformBehav : MonoBehaviour
             float randX = Random.Range(-2.34f, 2.34f);
          
             transform.position = new Vector3(randX, 5.5f, 0);
+            int rand = Random.Range(0, 2);
+            if(rand == 0)
+            {
+                transform.rotation = Quaternion.identity;
+                transform.Rotate(0,0,90);
+            }
+            else
+            {
+                transform.rotation = Quaternion.identity;
+            }
+
         }
 
         time += Time.deltaTime;
