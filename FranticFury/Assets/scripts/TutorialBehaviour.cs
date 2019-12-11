@@ -13,7 +13,7 @@ public class TutorialBehaviour : MonoBehaviour
     public GameObject player;
 
     public Text text;
-    private int stage = 0;
+    public int stage = 0;
     // Start is called before the first frame update
     void Start()
     {
