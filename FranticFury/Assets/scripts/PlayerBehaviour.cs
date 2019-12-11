@@ -61,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
-       if(transform.position.y < -40)
+       if(transform.position.y < -4)
         {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
