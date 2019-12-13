@@ -9,13 +9,16 @@ public class RightMove : MonoBehaviour
     public GameObject gameController;
     public Button thisButton;
     public GameObject player;
+    public AudioSource clickObj;
     public Rigidbody2D rb;
+    float timer = 0;
     void Start()
     {
         Button btn = thisButton.GetComponent<Button>();
+       // btn.onClick.AddListener(TaskOnClick);
         rb = player.GetComponent<Rigidbody2D>();
-        //GameObject uiClick = GameObject.FindGameObjectWithTag("ClickFX");
-        //clickObj = uiClick.GetComponent<AudioSource>();
+        GameObject uiClick = GameObject.FindGameObjectWithTag("walk");
+        clickObj = uiClick.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,10 +32,20 @@ public class RightMove : MonoBehaviour
             {
                 gameController.GetComponent<TutorialBehaviour>().stage = 1;
             }
+            if (timer >= 0.1f)
+            {
+                timer = 0;
+                clickObj.Play();
+            }
+            timer += Time.deltaTime;
         }
         else if (rb.velocity.x > 0)
         {
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x - 0.5f, rb.velocity.y);
         }
     }
+    //void TaskOnClick()
+    //{
+    //    clickObj.Play();
+    //}
 }

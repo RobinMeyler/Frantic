@@ -7,20 +7,20 @@ using UnityEngine.UI;
 public class OptionsButton : MonoBehaviour
 {
     public Button thisButton;
-    AudioSource clickObj;
+    public AudioSource clickObj;
 
     void Start()
     {
         Button btn = thisButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
 
-        //GameObject uiClick = GameObject.FindGameObjectWithTag("ClickFX");
-        //clickObj = uiClick.GetComponent<AudioSource>();
+        GameObject uiClick = GameObject.FindGameObjectWithTag("ClickFX");
+        clickObj = uiClick.GetComponent<AudioSource>();
     }
 
     void TaskOnClick()
     {
-        //clickObj.Play();
+        clickObj.Play();
         SceneManager.LoadScene("Options", LoadSceneMode.Single);
     }
 }

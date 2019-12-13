@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static float dropSpeed;
+    public static float endTime = 0;
+    public static float gameTime = 0;
     public GameObject platform;
     public GameObject[] platforms;
     public static bool lastPlat = false;
+    public Text timeText;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +26,25 @@ public class GameController : MonoBehaviour
             Instantiate(platform, spawnPosition, spawnRotation);
             platforms[i] = platform;
         }
-
+        timeText.text = "Time: " + gameTime;
         Debug.Log(platforms.Length);
     }
 
     // Update is called once per frame
     void Update()
     {
+        gameTime += Time.deltaTime;
+        timeText.text = "Time: " + (int)gameTime;
+        if (endTime > 10)
+        {
+            endTime -= Time.deltaTime;
+        }
+
+        if(endTime < 12 && endTime > 11)
+        {
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+
         //Debug.Log(platforms.Count);
         //foreach (GameObject G in platforms)
         //{

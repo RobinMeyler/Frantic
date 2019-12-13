@@ -20,6 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private float time = 0f;
     public GameObject controller;
+    public bool die = false;
 
     // We initialize our two references in the Start method
     void Start()

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Blade
+  - ClickFX
+  - walk
   layers:
   - Default
   - TransparentFX
