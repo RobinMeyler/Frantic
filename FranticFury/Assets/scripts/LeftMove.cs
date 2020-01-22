@@ -26,7 +26,7 @@ public class LeftMove : MonoBehaviour
         if (GetComponent<touch>().is_Touched == true)
         {
             //player.transform.position = player.transform.position + new Vector3(0.1f, 0, 0);
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(-3, rb.velocity.y);
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(-GameController.playerSpeed * 6, rb.velocity.y);
 
             if (SceneManager.GetActiveScene().name == "Tutorial" && gameController.GetComponent<TutorialBehaviour>().stage == 0)
             {
@@ -35,13 +35,13 @@ public class LeftMove : MonoBehaviour
             if (timer >= 0.1f)
             {
                 timer = 0;
-                clickObj.Play();
+                //clickObj.Play();
             }
             timer += Time.deltaTime;
         }
         else if (rb.velocity.x < 0)
         {
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x + 0.5f, rb.velocity.y);
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x + GameController.playerSpeed, rb.velocity.y);
         }
     }
     //void TaskOnClick()

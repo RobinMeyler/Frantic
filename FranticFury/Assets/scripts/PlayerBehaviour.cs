@@ -21,10 +21,12 @@ public class PlayerBehaviour : MonoBehaviour
     private float time = 0f;
     public GameObject controller;
     public bool die = false;
+    public float powerUpResestTimer = 0;
 
     // We initialize our two references in the Start method
     void Start()
     {
+        die = false;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GameObject[] ballers;
@@ -44,7 +46,12 @@ public class PlayerBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         time += Time.deltaTime;
+        powerUpResestTimer -= Time.deltaTime;
 
+        if(powerUpResestTimer <= 0)
+        {
+            GameController.playerSpeed = 0.5f;
+        }
         // Get the extent to which the player is currently pressing left or right
         float h = Input.GetAxis("Horizontal");
 
@@ -106,6 +113,16 @@ public class PlayerBehaviour : MonoBehaviour
             transform.SetParent(collision.transform);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PowerUp") //&& collision.transform.position.y > this.transform.position.y)
+        {
+            GameController.playerSpeed = 1.0f;
+            powerUpResestTimer = 3;
+            collision.gameObject.SetActive(false);
+        }
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform")
@@ -140,7 +157,7 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("grounded", false);
                 anim.SetBool("jump", true);
                 time = 0;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 6);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + GameController.playerSpeed*12);
             }
         }
     }

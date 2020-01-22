@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public static float dropSpeed;
     public static float endTime = 0;
     public static float gameTime = 0;
+    public static float playerSpeed = 0.5f;
     public GameObject platform;
     public GameObject[] platforms;
     public static bool lastPlat = false;
@@ -16,12 +17,13 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        endTime = 0;
         platforms = new GameObject[7];
         dropSpeed = 0.001f;
         for (int i = 0; i < 7; i++)
         {
             Quaternion spawnRotation = Quaternion.identity;
-            float randX = Random.Range(-2.34f, 2.34f);
+            float randX = Random.Range(-1.8f, 1.8f);
             Vector3 spawnPosition = new Vector3(randX,5 -(i*1.6f), 0);
             Instantiate(platform, spawnPosition, spawnRotation);
             platforms[i] = platform;

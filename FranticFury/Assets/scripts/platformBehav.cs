@@ -26,13 +26,13 @@ public class platformBehav : MonoBehaviour
         // Side swaping logic
         // Drop speed increasing logic
         // Once below screen reset
-        if(transform.position.x > 2.34 || transform.position.x < -2.34)
+        if(transform.position.x > 1.8f || transform.position.x < -1.8f)
         {
             sideSpeed = -sideSpeed;
         }
         if (transform.position.y < -5.9)
         {
-            float randX = Random.Range(-2.34f, 2.34f);
+            float randX = Random.Range(-1.8f, 1.8f);
          
             transform.position = new Vector3(randX, 5.5f, 0);
             int rand = Random.Range(0, 2);
