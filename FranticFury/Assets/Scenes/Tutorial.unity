@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 2811915499591000203, guid: 6551d10938fb1184eaea2703cfc056fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.43
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 2811915499591000203, guid: 6551d10938fb1184eaea2703cfc056fe,
         type: 3}
@@ -250,6 +250,7 @@ MonoBehaviour:
   gameController: {fileID: 554207191}
   thisButton: {fileID: 25308807}
   player: {fileID: 551590911}
+  clickObj: {fileID: 0}
   rb: {fileID: 0}
 --- !u!114 &25308807
 MonoBehaviour:
@@ -517,6 +518,7 @@ MonoBehaviour:
   gameController: {fileID: 554207191}
   thisButton: {fileID: 867177688}
   player: {fileID: 551590911}
+  clickObj: {fileID: 0}
   rb: {fileID: 0}
 --- !u!114 &867177688
 MonoBehaviour:
@@ -942,7 +944,7 @@ GameObject:
   - component: {fileID: 1257417691}
   m_Layer: 0
   m_Name: Right Border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1375,7 +1377,7 @@ GameObject:
   - component: {fileID: 1754085826}
   m_Layer: 0
   m_Name: Left Border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1556,6 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisButton: {fileID: 2111414318}
+  clickObj: {fileID: 0}
   player: {fileID: 551590911}
   rb: {fileID: 0}
 --- !u!114 &2111414318

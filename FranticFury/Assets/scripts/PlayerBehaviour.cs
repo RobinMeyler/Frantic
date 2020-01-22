@@ -23,6 +23,8 @@ public class PlayerBehaviour : MonoBehaviour
     public bool die = false;
     public float powerUpResestTimer = 0;
 
+    private bool touchingWall = false;
+
     // We initialize our two references in the Start method
     void Start()
     {
@@ -34,7 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
         int index = 0;
         foreach (GameObject plat in ballers)
         {
-            if (index == 2)
+            if (index == 2 && SceneManager.GetActiveScene().name == "FranticFury")
             {
                 transform.position = plat.transform.position + new Vector3(0, 0.75f, 0);
             }
@@ -86,10 +88,22 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
-       if(transform.position.y < -4)
+        if (transform.position.y < -4)
         {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
+
+        if (die)
+        {
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                this.gameObject.SetActive(false);
+                transform.position = new Vector3(-2.43f, -2.16f, 0);
+                this.gameObject.SetActive(true);
+                die = false;
+            }
+        }
+
     }
 
     void reverseImage()
@@ -112,6 +126,10 @@ public class PlayerBehaviour : MonoBehaviour
             anim.SetBool("grounded", true);
             transform.SetParent(collision.transform);
         }
+        if (collision.gameObject.tag == "Border")
+        {
+            touchingWall = true;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -128,6 +146,10 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             transform.parent = null;
+        }
+        if (collision.gameObject.tag == "Border")
+        {
+            touchingWall = false;
         }
     }
     
@@ -150,7 +172,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void buttonJump()
     {
-        if (!anim.GetBool("jump") && anim.GetBool("grounded"))
+        if ((!anim.GetBool("jump") && anim.GetBool("grounded")) || (touchingWall && !anim.GetBool("jump")))
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walking")) // == "Idle" || anim.name == "Walking")
             {

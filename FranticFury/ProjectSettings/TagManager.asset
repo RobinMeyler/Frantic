@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
-  - Blade
-  - ClickFX
-  - walk
   - PowerUp
   layers:
   - Default
