@@ -56,18 +56,22 @@ public class BladeBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && SceneManager.GetActiveScene().name != "Tutorial")
+        if (collision.gameObject.tag == "Player")
         {
-            //SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-            collision.gameObject.GetComponent<PlayerBehaviour>().die = true;
-            collision.gameObject.SetActive(false);
-            GameController.endTime = 13.5f;
+            if (SceneManager.GetActiveScene().name != "Tutorial")
+            {
+                //SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+                collision.gameObject.GetComponent<PlayerBehaviour>().die = true;
+                collision.gameObject.SetActive(false);
+                GameController.endTime = 13.5f;
+            }
+            else
+            {
+                //collision.gameObject.transform.position = new Vector3(-2.43f, -2.16f, 0);
+                collision.gameObject.GetComponent<PlayerBehaviour>().die = true;
+            }
         }
-        else if (collision.gameObject.tag == "Player")
-        {
-            //collision.gameObject.transform.position = new Vector3(-2.43f, -2.16f, 0);
-            collision.gameObject.GetComponent<PlayerBehaviour>().die = true;
-        }
+       
     }
 
     public void setIndex(int t_ind)

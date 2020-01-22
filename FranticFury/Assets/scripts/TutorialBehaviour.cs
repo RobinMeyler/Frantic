@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialBehaviour : MonoBehaviour
 {
@@ -58,7 +59,12 @@ public class TutorialBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(stage)
+        if (Input.GetKey(KeyCode.B))
+        {
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        }
+
+            switch (stage)
         {
             case 0:
                 // left n right
@@ -93,7 +99,7 @@ public class TutorialBehaviour : MonoBehaviour
                 break;
             case 4:
                 // complete!
-                text.text = "Congratulations! you have completed the Tutorial";
+                text.text = "Congratulations! you have completed the Tutorial. Press 'B' to go back to the Main Menu";
                 break;
         }
     }

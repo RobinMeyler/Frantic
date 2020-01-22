@@ -25,7 +25,7 @@ public class jump : MonoBehaviour
     {
         if (GetComponent<touch>().is_Touched == true)
         {
-            clickObj.Play();
+            //clickObj.Play();
             player.GetComponent<PlayerBehaviour>().buttonJump();
         }
     }

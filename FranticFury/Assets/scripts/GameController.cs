@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        endTime = 0;
         platforms = new GameObject[7];
         dropSpeed = 0.001f;
         for (int i = 0; i < 7; i++)
