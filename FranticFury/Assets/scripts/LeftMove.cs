@@ -23,6 +23,8 @@ public class LeftMove : MonoBehaviour
 
     void Update()
     {
+        thisButton.transform.position = new Vector3(Screen.width * 0.625f, thisButton.GetComponent<RectTransform>().rect.height, 0);
+
         if (GetComponent<touch>().is_Touched == true)
         {
             //player.transform.position = player.transform.position + new Vector3(0.1f, 0, 0);
