@@ -88,7 +88,7 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
-        if (transform.position.y < -4)
+        if (transform.position.y < -4 || transform.position.y > 5)
         {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }

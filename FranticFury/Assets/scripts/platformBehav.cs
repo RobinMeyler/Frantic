@@ -12,8 +12,19 @@ public class platformBehav : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dropSpeed = -0.01f;
-        sideSpeed = 0.01f;
+        dropSpeed = -0.001f;
+
+        int randspeed = Random.Range(1, 5);
+        int rand = Random.Range(0, 10);
+        if(rand > 5)
+        {
+            sideSpeed = 0.005f * randspeed;
+        }
+        else
+        {
+            sideSpeed = -0.005f * randspeed;
+        }
+        
 
 
     // Random start x logic
@@ -56,7 +67,7 @@ public class platformBehav : MonoBehaviour
         {
             Debug.Log(++oop);
             time = 0;
-            dropSpeed = dropSpeed - 0.001f;
+            dropSpeed = dropSpeed - 0.0001f;
         }
         transform.position = transform.position + new Vector3(sideSpeed, dropSpeed, 0);
     }
