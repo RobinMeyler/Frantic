@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
 
         if(endTime < 12 && endTime > 11)
         {
+            gameTime = 0;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
 

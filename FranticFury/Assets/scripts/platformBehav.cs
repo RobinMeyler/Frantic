@@ -63,11 +63,11 @@ public class platformBehav : MonoBehaviour
 
         time += Time.deltaTime;
 
-        if (time > 5)
+        if (time > 1)
         {
             Debug.Log(++oop);
             time = 0;
-            dropSpeed = dropSpeed - 0.0001f;
+            dropSpeed = dropSpeed - 0.001f;
         }
         transform.position = transform.position + new Vector3(sideSpeed, dropSpeed, 0);
     }

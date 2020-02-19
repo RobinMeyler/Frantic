@@ -88,8 +88,9 @@ public class PlayerBehaviour : MonoBehaviour
                 anim.SetBool("jump", false);
             }
         }
-        if (transform.position.y < -4 || transform.position.y > 5)
+        if (transform.position.y < -4 )
         {
+            GameController.gameTime = 0;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
 
@@ -136,7 +137,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "PowerUp") //&& collision.transform.position.y > this.transform.position.y)
         {
-            GameController.playerSpeed = 1.0f;
+            GameController.playerSpeed = 0.65f;
             powerUpResestTimer = 3;
             collision.gameObject.SetActive(false);
         }
