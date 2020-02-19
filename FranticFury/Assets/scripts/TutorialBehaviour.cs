@@ -38,7 +38,7 @@ public class TutorialBehaviour : MonoBehaviour
         temp = Instantiate(platform, spawnPosition, spawnRotation);
         platforms[3] = temp;
 
-        spawnPosition = new Vector3(-2.65f, 2.0f, 0);
+        spawnPosition = new Vector3(-2.40f, 2.2f, 0);
         temp = Instantiate(platform, spawnPosition, spawnRotation);
         temp.transform.Rotate(0, 0, 90);
         platforms[4] = temp;
@@ -61,7 +61,7 @@ public class TutorialBehaviour : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.B))
         {
-            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+            //SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
 
             switch (stage)
@@ -100,6 +100,8 @@ public class TutorialBehaviour : MonoBehaviour
             case 4:
                 // complete!
                 text.text = "Congratulations! you have completed the Tutorial. Press 'B' to go back to the Main Menu";
+                break;
+            default:
                 break;
         }
     }
